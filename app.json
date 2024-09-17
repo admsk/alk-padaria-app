@@ -2,24 +2,30 @@
   "expo": {
     "name": "alk-padaria",
     "slug": "alk-padaria",
-    "version": "1.0.0",
+    "version": "1.1.2",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/splash.jpg",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/splash.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": [
+          "whatsapp"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/adaptive-icon.jpg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.adriano.mendes.alkpadaria"
     },
     "web": {
       "bundler": "metro",
@@ -27,10 +33,33 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/splashMessage.png",
+          "color": "#ffffff"
+        }
+      ],
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "project": "react-native",
+          "organization": "nv-solucoes"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "2066a1b5-06b2-4a0f-b0a1-a6e74c336308"
+      }
     }
   }
 }
